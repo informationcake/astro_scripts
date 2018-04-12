@@ -186,7 +186,6 @@ def plot_offsets(diff_RA, diff_DEC, errorsRA, errorsDEC, RA_offset, DEC_offset, 
     plt.savefig(title, dpi=300, bbox_inches='tight')
     #plt.show()
 
-
 def calculate_offset(tbdata, sig):
     RA_offset=mean_weight(tbdata['RA_1'],tbdata['RA_2'],tbdata['E_RA_1'],tbdata['E_RA_2'])
     DEC_offset=mean_weight(tbdata['DEC_1'],tbdata['DEC_2'],tbdata['E_DEC_1'],tbdata['E_DEC_2'])
@@ -269,8 +268,8 @@ if __name__ == "__main__":
     #matched_cat='TGSS'
     inverse_match=False #Match MSSS to another survey
     #inverse_match=True #Match another survey to MSSS
-    #when this == True, TGSS will struggle to find good matches since the resolution is much better. Need to change sigma to 5 or 10.
-    sig=300
+    #when inverse_match==True, TGSS will struggle to find good matches since the resolution is much better. Need to change sigma to 5 or 10.
+    sig=3
     #only keep sources where their offset is this many standard deviations away from the mean.
     #for NVSS this needs to be one or two, since MSSS source density is much higher. For TGSS you can use 5 and get good results, since source densities are comparable-ish.
 
