@@ -88,22 +88,25 @@ def plot_rotation_test(ra1, dec1, diff_RA, diff_DEC, sig, mosaic_name, matched_c
         if inverse_match==False:
             fig.suptitle('{0} matched to TGSS.\nSources more than {1} sigma away from mean removed.'.format(str(mosaic_name), sig))
             title=mosaic_name[:7]+'MSSStoTGSS_RotationTest.png'
+            fig.text(0.04, 0.5, 'Offset of MSSS relative to TGSS, arcseconds', va='center', rotation='vertical')
         else:
             fig.suptitle('TGSS matched to {0}.\nSources more than {1} sigma away from mean removed.'.format(str(mosaic_name), sig))
             title=mosaic_name[:7]+'TGSStoMSSS_RotationTest.png'
+            fig.text(0.04, 0.5, 'Offset of TGSS relative to MSSS, arcseconds', va='center', rotation='vertical')
     if matched_cat=='NVSS':
         if inverse_match==False:
             fig.suptitle('{0} matched to NVSS.\nSources more than {1} sigma away from mean removed.'.format(str(mosaic_name), sig))
             title=mosaic_name[:7]+'MSSStoNVSS_RotationTest.png'
+            fig.text(0.04, 0.5, 'Offset of MSSS relative to NVSS, arcseconds', va='center', rotation='vertical')
         else:
             fig.suptitle('NVSS matched to {0}.\nSources more than {1} sigma away from mean removed.'.format(str(mosaic_name), sig))
             title=mosaic_name[:7]+'NVSStoMSSS_RotationTest.png'
+            fig.text(0.04, 0.5, 'Offset of NVSS relative to MSSS arcseconds', va='center', rotation='vertical')
     plt.subplot(2, 1, 1)
     plt.scatter(ra1, diff_RA*3600, s=1, label='RA')
     plt.scatter(ra1, diff_DEC*3600, s=1, label='DEC', c='r')
     plt.axhline(y=0, ls='-', lw=0.5, color='k')
     plt.xlabel('RA of MSSS source')
-    fig.text(0.04, 0.5, 'Offset of MSSS relative to TGSS, arcseconds', va='center', rotation='vertical')
     plt.legend(frameon=True, numpoints=1)
     plt.subplot(2, 1, 2)
     plt.scatter(dec1, diff_RA*3600, s=1, label='RA')
